@@ -95,9 +95,9 @@ class AppTypography extends ThemeExtension<AppTypography> {
 
   @override
   ThemeExtension<AppTypography> lerp(
-      covariant ThemeExtension<AppTypography>? other,
-      double t,
-      ) {
+    covariant ThemeExtension<AppTypography>? other,
+    double t,
+  ) {
     if (other is! AppTypography) {
       return this;
     }
