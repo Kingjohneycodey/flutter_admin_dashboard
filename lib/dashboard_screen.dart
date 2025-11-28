@@ -5,7 +5,9 @@ import 'package:flutter_dashboard/theme/dimens.dart';
 import 'package:flutter_dashboard/utils/sized_context.dart';
 import 'package:flutter_dashboard/widgets/app_bars/large_app_bar.dart';
 import 'package:flutter_dashboard/widgets/app_bordered_icon_button.dart';
+import 'package:flutter_dashboard/widgets/customer_growth_section.dart';
 import 'package:flutter_dashboard/widgets/date_filter_section.dart';
+import 'package:flutter_dashboard/widgets/stat_section.dart';
 import 'package:flutter_dashboard/widgets/user_profile_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_dashboard/widgets/app_search_bar.dart';
@@ -65,6 +67,17 @@ class DashboardScreen extends StatelessWidget {
                     ),
 
                   DateFilterSection(),
+                  SizedBox.shrink(),
+                  StatSection(),
+                  Padding(
+                    padding: EdgeInsetsGeometry.symmetric(
+                      horizontal: Dimens.largePadding,
+                    ),
+                    child: Column(
+                      spacing: Dimens.largePadding,
+                      children: [CustomerGrowthSection()],
+                    ),
+                  ),
                 ],
               ),
             ),
