@@ -5,7 +5,7 @@ import 'package:flutter_dashboard/theme/dimens.dart';
 import 'package:flutter_dashboard/utils/sized_context.dart';
 import 'package:flutter_dashboard/widgets/app_bars/large_app_bar.dart';
 import 'package:flutter_dashboard/widgets/app_bordered_icon_button.dart';
-import 'package:flutter_dashboard/widgets/customer_growth_section.dart';
+import 'package:flutter_dashboard/widgets/main_sections/customer_growth_section.dart';
 import 'package:flutter_dashboard/widgets/date_filter_section.dart';
 import 'package:flutter_dashboard/widgets/stat_section.dart';
 import 'package:flutter_dashboard/widgets/user_profile_image.dart';
@@ -14,6 +14,7 @@ import 'package:flutter_dashboard/widgets/app_search_bar.dart';
 import 'package:flutter_dashboard/widgets/app_bars/small_app_bar.dart';
 import 'package:flutter_dashboard/widgets/drawer_menu.dart';
 import 'package:flutter_dashboard/utils/check_device_size.dart';
+import 'package:flutter_dashboard/widgets/main_sections/revenue_growth_section.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -75,7 +76,10 @@ class DashboardScreen extends StatelessWidget {
                     ),
                     child: Column(
                       spacing: Dimens.largePadding,
-                      children: [CustomerGrowthSection()],
+                      children: [
+                        CustomerGrowthSection(),
+                        RevenueGrowthSection(),
+                      ],
                     ),
                   ),
                 ],
