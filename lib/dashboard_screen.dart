@@ -5,6 +5,7 @@ import 'package:flutter_dashboard/widgets/app_bars/large_app_bar.dart';
 import 'package:flutter_dashboard/widgets/app_bordered_icon_button.dart';
 import 'package:flutter_dashboard/widgets/main_sections/customer_growth_section.dart';
 import 'package:flutter_dashboard/widgets/date_filter_section.dart';
+import 'package:flutter_dashboard/widgets/main_sections/latest_orders_section.dart';
 import 'package:flutter_dashboard/widgets/stat_section.dart';
 import 'package:flutter_dashboard/widgets/user_profile_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -79,6 +80,7 @@ class DashboardScreen extends StatelessWidget {
                         CustomerGrowthSection(),
                         RevenueGrowthSection(),
                         SalesOverviewSection(),
+                        LatestOrdersSection(),
                       ],
                     ),
                   ),
