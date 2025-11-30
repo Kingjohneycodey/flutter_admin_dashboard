@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dashboard/bloc/theme_cubit.dart';
 import 'package:flutter_dashboard/theme/dimens.dart';
 import 'package:flutter_dashboard/utils/sized_context.dart';
 import 'package:flutter_dashboard/widgets/app_bars/large_app_bar.dart';
@@ -15,6 +13,7 @@ import 'package:flutter_dashboard/widgets/app_bars/small_app_bar.dart';
 import 'package:flutter_dashboard/widgets/drawer_menu.dart';
 import 'package:flutter_dashboard/utils/check_device_size.dart';
 import 'package:flutter_dashboard/widgets/main_sections/revenue_growth_section.dart';
+import 'package:flutter_dashboard/widgets/main_sections/sales_overview_section.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -79,6 +78,7 @@ class DashboardScreen extends StatelessWidget {
                       children: [
                         CustomerGrowthSection(),
                         RevenueGrowthSection(),
+                        SalesOverviewSection(),
                       ],
                     ),
                   ),
