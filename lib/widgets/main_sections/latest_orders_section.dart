@@ -10,6 +10,7 @@ class LatestOrdersSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShadedContainer(
+      height: 555,
       padding: EdgeInsets.all(Dimens.largePadding),
       child: Column(
         spacing: Dimens.largePadding,
@@ -21,7 +22,7 @@ class LatestOrdersSection extends StatelessWidget {
               TextButton(onPressed: () {}, child: Text('View details')),
             ],
           ),
-          OrdersDataTable(),
+          Expanded(child: OrdersDataTable()),
         ],
       ),
     );

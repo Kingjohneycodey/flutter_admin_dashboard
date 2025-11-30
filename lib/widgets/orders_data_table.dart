@@ -7,17 +7,28 @@ class OrdersDataTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController verticalController = ScrollController();
     final ScrollController horizontalController = ScrollController();
 
-    return AppScrollBar(
-      controller: horizontalController,
-      child: SingleChildScrollView(
-        controller: horizontalController,
-        scrollDirection: Axis.horizontal,
-        child: DataTable(
-          headingTextStyle: TextStyle(fontWeight: FontWeight.bold),
-          columns: _buildCenteredColumns(),
-          rows: _buildCenteredRows(),
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 200),
+      child: AppScrollBar(
+        controller: verticalController,
+        child: SingleChildScrollView(
+          controller: verticalController,
+          scrollDirection: Axis.vertical,
+          child: AppScrollBar(
+            controller: horizontalController,
+            child: SingleChildScrollView(
+              controller: horizontalController,
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                headingTextStyle: TextStyle(fontWeight: FontWeight.bold),
+                columns: _buildCenteredColumns(),
+                rows: _buildCenteredRows(),
+              ),
+            ),
+          ),
         ),
       ),
     );

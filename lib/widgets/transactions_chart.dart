@@ -96,7 +96,7 @@ class _TransactionsChartState extends State<TransactionsChart> {
                 ),
                 DataSourceViewer(
                   title: 'Application',
-                  color: Color(0xFF7BB7FC),
+                  color: Color(0xffEADDFF),
                 ),
               ],
             ),
@@ -141,8 +141,8 @@ class _TransactionsChartState extends State<TransactionsChart> {
       barsSpace: 4,
       x: x,
       barRods: [
-        BarChartRodData(toY: y1, color: AppColors.primaryColor, width: width),
-        BarChartRodData(toY: y2, color: Color(0xFF7BB7FC), width: width),
+        BarChartRodData(toY: y1, color: Colors.deepPurple, width: width),
+        BarChartRodData(toY: y2, color: Color(0xffEADDFF), width: width),
       ],
     );
   }

@@ -6,6 +6,7 @@ import 'package:flutter_dashboard/widgets/app_bordered_icon_button.dart';
 import 'package:flutter_dashboard/widgets/main_sections/customer_growth_section.dart';
 import 'package:flutter_dashboard/widgets/date_filter_section.dart';
 import 'package:flutter_dashboard/widgets/main_sections/latest_orders_section.dart';
+import 'package:flutter_dashboard/widgets/responsive_layout.dart';
 import 'package:flutter_dashboard/widgets/stat_section.dart';
 import 'package:flutter_dashboard/widgets/user_profile_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,7 +34,7 @@ class DashboardScreen extends StatelessWidget {
               bottom: PreferredSize(
                 preferredSize: Size.fromHeight(50),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: Dimens.largePadding,
                     vertical: Dimens.largePadding,
                   ),
@@ -66,21 +67,44 @@ class DashboardScreen extends StatelessWidget {
                       ],
                       centerWidget: AppSearchBar(),
                     ),
-
                   DateFilterSection(),
                   SizedBox.shrink(),
                   StatSection(),
                   Padding(
-                    padding: EdgeInsetsGeometry.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: Dimens.largePadding,
                     ),
                     child: Column(
                       spacing: Dimens.largePadding,
                       children: [
-                        CustomerGrowthSection(),
-                        RevenueGrowthSection(),
-                        SalesOverviewSection(),
-                        LatestOrdersSection(),
+                        ResponsiveLayout(
+                          children: [
+                            SizedBox(
+                              width: getResponsiveSize(context),
+                              child: CustomerGrowthSection(),
+                            ),
+                            SizedBox(width: Dimens.largePadding),
+                            SizedBox(height: Dimens.largePadding),
+                            SizedBox(
+                              width: getResponsiveSize(context),
+                              child: RevenueGrowthSection(),
+                            ),
+                          ],
+                        ),
+                        ResponsiveLayout(
+                          children: [
+                            SizedBox(
+                              width: getResponsiveSize(context),
+                              child: SalesOverviewSection(),
+                            ),
+                            SizedBox(width: Dimens.largePadding),
+                            SizedBox(height: Dimens.largePadding),
+                            SizedBox(
+                              width: getResponsiveSize(context),
+                              child: LatestOrdersSection(),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -91,5 +115,17 @@ class DashboardScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  double getResponsiveSize(final BuildContext context) {
+    if (isMobileSize(context) || isTabletSize(context)) {
+      return context.widthPx;
+    }
+    if (isDesktopSize(context)) {
+      return context.widthPx * 0.5 - 24;
+    }
+    // For large desktops
+    // When the menu is displayed as a fixed
+    return context.widthPx * 0.5 - 176;
   }
 }
